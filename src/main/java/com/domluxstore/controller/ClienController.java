@@ -44,25 +44,6 @@ public class ClienController{
     @PostMapping("/client")
     public ResponseEntity<ClienteGetDto> save(@Valid @RequestBody ClientePostDto clientePostDto){
 
-        Map<String, String> erros = new HashMap<>();
-
-        User user1 = userService.finByEmail(clientePostDto.getEmail());
-
-        if (user1!=null){
-            erros.put("email","The email  is already being used");
-        }
-
-        User user2 = userService.finByPhone(clientePostDto.getPhone());
-
-        if (user2!=null){
-            erros.put("phone","The phone number is already being used");
-        }
-
-        if (!erros.isEmpty()){
-
-            throw new ConflictException("Information conflits",erros);
-        }
-
         Client client = clientMapper.clientPostDtoToClient(clientePostDto);
 
         client = clientService.save(client);

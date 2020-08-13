@@ -4,7 +4,6 @@ import com.domluxstore.converter.domain.administrator.AdministratorPutDto;
 import com.domluxstore.converter.domain.user.UserPutDto;
 import com.domluxstore.converter.mapperes.UserMapper;
 import com.domluxstore.domain.Administrator;
-import com.domluxstore.domain.Client;
 import com.domluxstore.domain.User;
 import com.domluxstore.domain.enumeration.AdministratorType;
 import com.domluxstore.exception.BadRequestException;
