@@ -1,0 +1,8 @@
+spring:
+    data:
+      mongodb:
+        username: double
+        password: robot
+        database: domluxstore2020
+        port: 27017
+        host: localhost
