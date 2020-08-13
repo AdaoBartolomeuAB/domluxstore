@@ -47,7 +47,7 @@ public class AdministratorController {
 
     @ApiOperation(value= "update adminitrator")
     @PutMapping("/administrator/{id}")
-    public ResponseEntity<AdministratorGetDto> update(@PathVariable String id,@Valid @RequestBody AdministratorPutDto administratorPutDto){
+    public ResponseEntity<AdministratorGetDto> update(@PathVariable String id, @RequestBody AdministratorPutDto administratorPutDto){
 
         Administrator administrator = administratorService.findById(id);
 
@@ -55,6 +55,18 @@ public class AdministratorController {
 
         Administrator administrator1 = administratorService.update(id,administratorPutDto);
         return new ResponseEntity<>(convertDto(administrator1), HttpStatus.OK);
+    }
+
+    @ApiOperation(value= "delete adminitrator")
+    @DeleteMapping("/administrator/{id}")
+    public ResponseEntity<AdministratorGetDto> update(@PathVariable String id){
+
+        Administrator administrator = administratorService.findById(id);
+
+        if (administrator==null) throw new RecourceNotFoundException("Administrator not found", "Ensure that the id is correct or the administrator that you want to find dont exist");
+
+        administratorService.delete(administrator);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @ApiOperation(value= "List all adminitratores")

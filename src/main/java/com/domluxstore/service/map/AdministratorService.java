@@ -9,6 +9,8 @@ import java.util.Map;
 
 public interface AdministratorService {
 
+    void delete(Administrator administrator);
+
     Administrator save(Administrator administrator);
 
     Administrator update(String id,AdministratorPutDto administratorPutDto);

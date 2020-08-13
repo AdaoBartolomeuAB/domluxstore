@@ -79,6 +79,14 @@ public class AdministratorServiceImpl implements AdministratorService {
         return administratorRepository.findById(id).orElse(null);
     }
 
+
+    @Override
+    public void delete(Administrator administrator) {
+
+        userService.delete(administrator.getUser());
+        administratorRepository.delete(administrator);
+    }
+
     @Override
     public Page<Administrator> filterSerach(Map<String,String> filtros, Pageable pageable){
 
